@@ -19,8 +19,12 @@ public class GetAndPostTests {
 	public void testGet() {
 		baseURI = "https://reqres.in/api";
 
-		given().get("/users?page=2").then().statusCode(200).body("data[4].first_name", equalTo("George"))
-				.body("data.first_name", hasItems("George", "Rachel"));
+		given()
+			.get("/users?page=2")
+		.then()
+			.statusCode(200)
+			.body("data[4].first_name", equalTo("George"))
+			.body("data.first_name", hasItems("George", "Rachel"));
 	}
 
 	@Test
@@ -44,7 +48,16 @@ public class GetAndPostTests {
 		// verifying a 201 Created status code, and logging the response—used to test
 		// user creation functionality.
 		baseURI = "https://reqres.in/api";
-		given().header("Content-Type", "application/json").contentType(ContentType.JSON).accept(ContentType.JSON)
-				.body(request1.toJSONString()).when().post("/users").then().statusCode(201).log().all();
+		given()
+			.header("Content-Type", "application/json")
+			.contentType(ContentType.JSON)
+			.accept(ContentType.JSON)
+			.body(request1.toJSONString())
+		.when()
+			.post("/users")
+		.then()
+			.statusCode(201)
+			.log()
+			.all();
 	}
 }

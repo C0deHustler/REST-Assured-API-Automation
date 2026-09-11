@@ -55,7 +55,8 @@ public class SoapXMLRequest {
 	    	.post("/calculator.asmx")
 	    .then()
 	    	.statusCode(200)
-	    	.log().all();
+	    	.log()
+	    	.all();
 
 		
 		
@@ -71,7 +72,8 @@ public class SoapXMLRequest {
 		    .post("/calculator.asmx")
 		.then()
 		    .statusCode(200)
-		    .log().all()
+		    .log()
+		    .all()
 		// After sending the SOAP request and getting the full response in the console as 
 		// the output of the previously written code,
 		// we manually analyze the XML structure of the response.

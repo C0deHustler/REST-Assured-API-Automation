@@ -47,7 +47,8 @@ public class XMLSchemaValidation {
 	    	.post("/calculator.asmx")        // Send POST request to the service
 	    .then()
 	    	.statusCode(200)                 // Assert the status code is 200 (OK)
-	    	.log().all()                     // Log the full response
+	    	.log()
+	    	.all()                     // Log the full response
 	    .and()
 	    	.body("//*:AddResult.text()", equalTo("14")) // Validate the response contains expected result
 	    .and()

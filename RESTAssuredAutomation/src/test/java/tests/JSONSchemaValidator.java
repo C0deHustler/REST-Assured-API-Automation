@@ -12,8 +12,12 @@ public class JSONSchemaValidator {
 	public void testGet() {
 		baseURI = "https://reqres.in/api";
 
-		given().get("/users?page=2").then().assertThat().body(matchesJsonSchemaInClasspath("schema.json"))
-				.statusCode(200);
+		given()
+			.get("/users?page=2")
+		.then()
+			.assertThat()
+			.body(matchesJsonSchemaInClasspath("schema.json"))
+			.statusCode(200);
 	}
 
 }

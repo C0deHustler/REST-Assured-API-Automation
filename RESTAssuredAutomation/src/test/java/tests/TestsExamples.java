@@ -28,6 +28,13 @@ public class TestsExamples {
 	@Test
 	public void test2() {
 		baseURI = "https://reqres.in/api";
-		given().get("/users?page=2").then().statusCode(200).body("data[2].first_name", equalTo("Tobias")).log().all();
+		
+		given()
+			.get("/users?page=2")
+		.then()
+			.statusCode(200)
+			.body("data[2].first_name", equalTo("Tobias"))
+			.log()
+			.all();
 	}
 }
